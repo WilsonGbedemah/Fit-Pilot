@@ -1,0 +1,31 @@
+{
+  "name": "fit-pilot",
+  "version": "1.0.0",
+  "description": "Fitness Tracker API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Felix Wilson Gbedemah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.17.1",
+    "mongodb": "^6.2.0",
+    "node": "^21.1.0",
+    "swagger-ui-express": "^5.0.0",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.1.0"
+  }
+}

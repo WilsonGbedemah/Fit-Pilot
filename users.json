@@ -1,0 +1,67 @@
+[
+    {
+        
+        "username": "john_doe123",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "hashedAndSaltedPassword123",
+        "age": 28,
+        "gender": "Male",
+        "height": 180,
+        "weight": 75,
+        "fitnessGoals": "Build muscle and improve endurance",
+        "fitnessLevel": "Intermediate"
+    },
+    {
+        
+        "username": "john_doe123",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "hashedAndSaltedPassword123",
+        "age": 28,
+        "gender": "Male",
+        "height": 180,
+        "weight": 75,
+        "fitnessGoals": "Build muscle and improve endurance",
+        "fitnessLevel": "Intermediate"
+    },
+    {
+        
+        "username": "john_doe123",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "hashedAndSaltedPassword123",
+        "age": 28,
+        "gender": "Male",
+        "height": 180,
+        "weight": 75,
+        "fitnessGoals": "Build muscle and improve endurance",
+        "fitnessLevel": "Intermediate"
+    },
+    {
+        
+        "username": "john_doe123",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "hashedAndSaltedPassword123",
+        "age": 28,
+        "gender": "Male",
+        "height": 180,
+        "weight": 75,
+        "fitnessGoals": "Build muscle and improve endurance",
+        "fitnessLevel": "Intermediate"
+    },
+    {
+        
+        "username": "john_doe123",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "password": "hashedAndSaltedPassword123",
+        "age": 28,
+        "gender": "Male",
+        "height": 180,
+        "weight": 75,
+        "fitnessGoals": "Build muscle and improve endurance",
+        "fitnessLevel": "Intermediate"
+    }
+]
