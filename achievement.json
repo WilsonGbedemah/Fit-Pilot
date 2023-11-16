@@ -1,0 +1,63 @@
+[
+  {
+    "userId": "pharo",
+    "achievementId": 1,
+    "name": "Muscle Builder",
+    "description": "Achieve significant muscle gains.",
+    "criteria": {
+      "fitnessGoal": "Build muscle",
+      "level": "Intermediate"
+    }
+  },
+  {
+    "userId": "pharo",
+    "achievementId": 2,
+    "name": "Endurance Warrior",
+    "description": "Complete 50 hours of endurance exercises.",
+    "criteria": {
+      "fitnessGoal": "Improve endurance",
+      "level": "Intermediate"
+    }
+  },
+  {
+    "userId": "skanty",
+    "achievementId": 1,
+    "name": "Shape Shifter",
+    "description": "Achieve a well-defined physique.",
+    "criteria": {
+      "fitnessGoal": "Build shape",
+      "level": "Beginner"
+    }
+  },
+  {
+    "userId": "skanty",
+    "achievementId": 2,
+    "name": "Well-Being Explorer",
+    "description": "Explore various well-being activities.",
+    "criteria": {
+      "fitnessGoal": "General well-being",
+      "level": "Beginner"
+    }
+  },
+  {
+    "userId": "Edoh",
+    "achievementId": 1,
+    "name": "Biceps & Triceps Enthusiast",
+    "description": "Master bicep and tricep exercises.",
+    "criteria": {
+      "fitnessGoal": "Build biceps and triceps",
+      "level": "Beginner"
+    }
+  },
+  {
+    "userId": "Edoh",
+    "achievementId": 2,
+    "name": "Consistent Beginner",
+    "description": "Stay consistent with beginner-level workouts.",
+    "criteria": {
+      "fitnessGoal": "Build biceps and triceps",
+      "level": "Beginner"
+    }
+  }
+
+]

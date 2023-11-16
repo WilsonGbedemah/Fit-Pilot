@@ -1,11 +1,10 @@
 [
     {
-        
-        "username": "john_doe123",
-        "name": "John Doe",
-        "email": "john.doe@example.com",
+        "username": "pharo",
+        "name": "Felix Wilson Gbedemah ",
+        "email": "felix09@gmail.com",
         "password": "hashedAndSaltedPassword123",
-        "age": 28,
+        "age": 27,
         "gender": "Male",
         "height": 180,
         "weight": 75,
@@ -13,55 +12,27 @@
         "fitnessLevel": "Intermediate"
     },
     {
-        
-        "username": "john_doe123",
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "password": "hashedAndSaltedPassword123",
-        "age": 28,
-        "gender": "Male",
-        "height": 180,
-        "weight": 75,
-        "fitnessGoals": "Build muscle and improve endurance",
-        "fitnessLevel": "Intermediate"
+        "username": "skanty",
+        "name": "Gifty Gbedemah",
+        "email": "skantymill@gmail.com",
+        "password": "Skanty112",
+        "age": 24,
+        "gender": "Female",
+        "height": 150,
+        "weight": 60,
+        "fitnessGoals": "Build shape and general well being",
+        "fitnessLevel": "Beginner"
     },
     {
-        
-        "username": "john_doe123",
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "password": "hashedAndSaltedPassword123",
-        "age": 28,
+        "username": "Edoh",
+        "name": "Bruno Edoh",
+        "email": "Edoh1@gmail.com",
+        "password": "EdohB@123",
+        "age": 27,
         "gender": "Male",
-        "height": 180,
-        "weight": 75,
-        "fitnessGoals": "Build muscle and improve endurance",
-        "fitnessLevel": "Intermediate"
-    },
-    {
-        
-        "username": "john_doe123",
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "password": "hashedAndSaltedPassword123",
-        "age": 28,
-        "gender": "Male",
-        "height": 180,
-        "weight": 75,
-        "fitnessGoals": "Build muscle and improve endurance",
-        "fitnessLevel": "Intermediate"
-    },
-    {
-        
-        "username": "john_doe123",
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "password": "hashedAndSaltedPassword123",
-        "age": 28,
-        "gender": "Male",
-        "height": 180,
-        "weight": 75,
-        "fitnessGoals": "Build muscle and improve endurance",
-        "fitnessLevel": "Intermediate"
+        "height": 170,
+        "weight": 68,
+        "fitnessGoals": "Build biceps and triceps",
+        "fitnessLevel": "Beginner"
     }
 ]

@@ -1,0 +1,45 @@
+[
+    {
+        "userId": "pharo",
+        "workoutId": 1,
+        "date": "2023-11-01",
+        "durationMinutes": 45,
+        "caloriesBurned": 350,
+        "notes": "Felt strong and energized.",
+        "mood": "Happy",
+        "heartRate": 130,
+        "intensityLevel": "Moderate",
+        "sleepQuality": "Good",
+        "injuriesDiscomforts": "None",
+        "isCompleted": true
+      },
+      {
+        "userId": "skanty",
+        "workoutId": 1,
+        "date": "2023-11-02",
+        "durationMinutes": 30,
+        "caloriesBurned": 200,
+        "notes": "Enjoyed the workout. Will increase intensity next time.",
+        "mood": "Energetic",
+        "heartRate": 120,
+        "intensityLevel": "Low",
+        "sleepQuality": "Good",
+        "injuriesDiscomforts": "None",
+        "isCompleted": true
+      },
+      {
+        "userId": "Edoh",
+        "workoutId": 2,
+        "date": "2023-11-01",
+        "durationMinutes": 30,
+        "caloriesBurned": 300,
+        "notes": "First time doing a core workout. Tough but satisfying.",
+        "mood": "Accomplished",
+        "heartRate": 125,
+        "intensityLevel": "Moderate",
+        "sleepQuality": "Good",
+        "injuriesDiscomforts": "None",
+        "isCompleted": true
+      }
+
+]
