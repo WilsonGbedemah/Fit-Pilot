@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 

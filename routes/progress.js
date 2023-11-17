@@ -1,14 +1,20 @@
+/* eslint-disable no-undef */
 const express = require('express');
 const router = express.Router();
 
+const progController = require('../controllers/progress');
 
-const progressController = require('..controllers/progress');
 
-router.get('/', progressController.getAll);
-router.get('/:username',  progressController.getProgress);
-router.put('/:id', progressController.updateProgress);
-router.post('/', progressController.createProgress);
-router.delete('/:id', progressController.deleteProgress);
+router.get('/', progController.getAll);
+
+router.get('/:username', progController.getProgress);
+
+router.put('/:id', progController.updateProgress);
+
+router.post('/', progController.createProgress);
+
+router.delete('/:id', progController.deleteProgress);
+
 
 
 module.exports = router;

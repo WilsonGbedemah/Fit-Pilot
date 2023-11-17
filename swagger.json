@@ -3,10 +3,31 @@
   "info": {
     "title": "Fit Pilot ",
     "description": "keep tract of user fitness, and goal, giving out suggestion and also tracking progress of user with underlined achievements of users",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "contact": {
+      "email": "afrogbede09@gmail.com"
+    }
   },
   "host": "localhost:8080",
   "basePath": "/",
+  "tags": [
+    {
+      "name": "users",
+      "description": "Operations about users"
+    },
+    {
+      "name": "workout",
+      "description": "Operations about workout"
+    },
+    {
+      "name": "progress",
+      "description": "Operations about progress"
+    },
+    {
+      "name": "achievement",
+      "description": "Operations about achievement"
+    }
+  ],
   "schemes": [
     "http"
   ],
@@ -23,184 +44,738 @@
     },
     "/users/": {
       "get": {
-        "description": "",
+        "summary": "Get all users",
+        "tags": ["users"],
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
-        "description": "",
+        "description": "Add new user",
+        "tags": ["users"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "height": {
+                  "example": "any"
+                },
+                "weight": {
+                  "example": "any"
+                },
+                "fitnessGoals": {
+                  "example": "any"
+                },
+                "fitnessLevel": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/users/{username}": {
       "get": {
-        "description": "",
+        "description": "Get all users by username",
+        "tags": ["users"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/users/{id}": {
       "put": {
-        "description": "",
+        "description": "update user by ID",
+        "tags": ["users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "password": {
+                  "example": "any"
+                },
+                "age": {
+                  "example": "any"
+                },
+                "gender": {
+                  "example": "any"
+                },
+                "height": {
+                  "example": "any"
+                },
+                "weight": {
+                  "example": "any"
+                },
+                "fitnessGoals": {
+                  "example": "any"
+                },
+                "fitnessLevel": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "description": "delete user by ID",
+        "tags": ["users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/workout/": {
       "get": {
-        "description": "",
+        "description": "Get all workouts",
+        "tags": ["workout"],
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
-        "description": "",
+        "description": "Add new workout",
+        "tags": ["workout"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "workoutId": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "difficultyLevel": {
+                  "example": "any"
+                },
+                "targetedMuscleGroup": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "stepByStepInstructions": {
+                  "example": "any"
+                },
+                "recommendedDuration": {
+                  "example": "any"
+                },
+                "additionalTips": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/workout/{username}": {
+    "/workout/{name}": {
       "get": {
-        "description": "",
+        "description": "Get all workout by workout name",
+        "tags": ["workout"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/workout/{id}": {
       "put": {
-        "description": "",
+        "description": "update workout by ID",
+        "tags": ["workout"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "workoutId": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "difficultyLevel": {
+                  "example": "any"
+                },
+                "targetedMuscleGroup": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "stepByStepInstructions": {
+                  "example": "any"
+                },
+                "recommendedDuration": {
+                  "example": "any"
+                },
+                "additionalTips": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "description": "delete workout by ID",
+        "tags": ["workout"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/progress/": {
       "get": {
-        "description": "",
+        "description": "Get all progress",
+        "tags": ["progress"],
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
+        "description": "Add new progress",
+        "tags": ["progress"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "workoutId": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "durationMinutes": {
+                  "example": "any"
+                },
+                "caloriesBurned": {
+                  "example": "any"
+                },
+                "notes": {
+                  "example": "any"
+                },
+                "mood": {
+                  "example": "any"
+                },
+                "heartRate": {
+                  "example": "any"
+                },
+                "intensityLevel": {
+                  "example": "any"
+                },
+                "sleepQuality": {
+                  "example": "any"
+                },
+                "injuriesDiscomforts": {
+                  "example": "any"
+                },
+                "isCompleted": {
+                  "example": "any"
+                }
+              }
+            }
           }
-        }
-      }
-    },
-    "/progress/{username}": {
-      "get": {
-        "description": "",
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/progress/{id}": {
-      "put": {
-        "description": "",
+      "get": {
+        "description": "Get all progress by progress ID",
+        "tags": ["progress"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "description": "Update user progress by progress ID",
+        "tags": ["progress"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "workoutId": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "durationMinutes": {
+                  "example": "any"
+                },
+                "caloriesBurned": {
+                  "example": "any"
+                },
+                "notes": {
+                  "example": "any"
+                },
+                "mood": {
+                  "example": "any"
+                },
+                "heartRate": {
+                  "example": "any"
+                },
+                "intensityLevel": {
+                  "example": "any"
+                },
+                "sleepQuality": {
+                  "example": "any"
+                },
+                "injuriesDiscomforts": {
+                  "example": "any"
+                },
+                "isCompleted": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "description": "delete user progress by progress ID",
+        "tags": ["progress"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/achievement/": {
       "get": {
-        "description": "",
+        "description": "Get all user achievement",
+        "tags": ["achievement"],
+        "produces": ["application/json"],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
           }
         }
       },
       "post": {
-        "description": "",
+        "description": "Add new user achievement",
+        "tags": ["achievement"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "achievementId": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "criteria": {
+                  "fitnessGoal": {
+                    "example": "any"
+                  },
+                  "level": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "201": {
+            "description": "Created"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/achievement/{username}": {
+    "/achievement/{name}": {
       "get": {
-        "description": "",
+        "description": "Get all user achievements by name",
+        "tags": ["achievement"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
     "/achievement/{id}": {
       "put": {
-        "description": "",
+        "description": "update achievement by ID",
+        "tags": ["achievement"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "example": "any"
+                },
+                "achievementId": {
+                  "example": "any"
+                },
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "criteria": {
+                  "fitnessGoal": {
+                    "example": "any"
+                  },
+                  "level": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "",
+        "description": "delete achievement by ID",
+        "tags": ["achievement"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }

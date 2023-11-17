@@ -1,14 +1,20 @@
+/* eslint-disable no-undef */
 const express = require('express');
 const router = express.Router();
 
+const workController = require('../controllers/workout');
 
-const workoutController = require('..controllers/workout');
 
-router.get('/', workoutController.getAll);
-router.get('/:username',  workoutController.getWorkout);
-router.put('/:id', workoutController.updateWorkout);
-router.post('/', workoutController.createWorkout);
-router.delete('/:id', workoutController.deleteWorkout);
+router.get('/', workController.getAll);
+
+router.get('/:username', workController.getWorkout);
+
+router.put('/:id', workController.updateWorkout);
+
+router.post('/', workController.createWorkout);
+
+router.delete('/:id', workController.deleteWorkout);
+
 
 
 module.exports = router;
