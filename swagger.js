@@ -6,10 +6,10 @@ const doc = {
         title: "Fit Pilot ",
         description: "keep tract of user fitness, and goal, giving out suggestion and also tracking progress of user with underlined achievements of users"
     },
-    // host: "https://task-manager-t3rr.onrender.com",
-    // schemes: ['https']
-    host: "localhost:8080",
-    schemes: ['http'],
+    host: "https://fit-pilot.onrender.com",
+    schemes: ['https']
+    // host: "localhost:8080",
+    // schemes: ['http'],
 };
 
 const outputFile = './swagger.json';
