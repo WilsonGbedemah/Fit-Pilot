@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -21,7 +22,7 @@ app
   })
   .use('/', require('./routes'));
 
-// Handle uncaught exceptions and errors as well.
+//Handle uncaught exceptions and errors
 process.on('uncaughtException', (err, origin) => {
   console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
 });

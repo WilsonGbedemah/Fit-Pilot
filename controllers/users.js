@@ -3,27 +3,27 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
-    const result = await mongodb.getDb().db().collection('workout').find();
+    const result = await mongodb.getDb().db().collection('users').find();
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists);
     });
 };
 
-const getWorkout = async (req, res) => {
+const getUser = async (req, res) => {
     const {
-        name
+        username
     } = req.params;
 
-    if (!name) {
+    if (!username || !/^[a-zA-Z0-9_]{4,10}$/.test(username)) {
         return res.status(400).json({
-            error: 'The name field must be provided.'
+            error: 'The username field must be provided.'
         });
     }
 
     try {
-        const result = await mongodb.getDb().db().collection('workout').findOne({
-            name
+        const result = await mongodb.getDb().db().collection('users').findOne({
+            username
         });
 
         if (!result) {
@@ -44,20 +44,21 @@ const getWorkout = async (req, res) => {
 };
 
 
-const createWorkout = async (req, res) => {
-    const workout = {
-        userId: req.body.userId,
-        workoutId: req.body.workoutId,
+const createUser = async (req, res) => {
+    const user = {
+        username: req.body.username,
         name: req.body.name,
-        difficultyLevel: req.body.difficultyLevel,
-        targetedMuscleGroups: req.body.targetedMuscleGroups,
-        description: req.body.description,
-        stepByStepInstructions: req.body.stepByStepInstructions,
-        recommendedDuration: req.body.recommendedDuration,
-        additionalTips: req.body.additionalTips,
+        email: req.body.email,
+        password: req.body.password,
+        age: req.body.age,
+        gender: req.body.gender,
+        height: req.body.height,
+        weight: req.body.weight,
+        fitnessGoals: req.body.fitnessGoals,
+        fitnessLevel: req.body.fitnessLevel,
     };
-    console.log('Data received for createWorkout:', workout);
-    const response = await mongodb.getDb().db().collection('workout').insertOne(workout);
+    console.log('Data received for createUser:', user);
+    const response = await mongodb.getDb().db().collection('users').insertOne(user);
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
@@ -66,30 +67,31 @@ const createWorkout = async (req, res) => {
     }
 };
 
-const updateWorkout = async (req, res) => {
+const updateUser = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid workout id to update a user workout.');
+        res.status(400).json('Must use a valid user id to update a user.');
     }
-    const workoutId = new ObjectId(req.params.id);
-    const updatedWorkout = {
-        userId: req.body.userId,
-        workoutId: req.body.workoutId,
+    const userId = new ObjectId(req.params.id);
+    const updatedUser = {
+        username: req.body.username,
         name: req.body.name,
-        difficultyLevel: req.body.difficultyLevel,
-        targetedMuscleGroups: req.body.targetedMuscleGroups,
-        description: req.body.description,
-        stepByStepInstructions: req.body.stepByStepInstructions,
-        recommendedDuration: req.body.recommendedDuration,
-        additionalTips: req.body.additionalTips,
+        email: req.body.email,
+        password: req.body.password,
+        age: req.body.age,
+        gender: req.body.gender,
+        height: req.body.height,
+        weight: req.body.weight,
+        fitnessGoals: req.body.fitnessGoals,
+        fitnessLevel: req.body.fitnessLevel,
     };
     //console.log('Data received for updateContact:', contact);
     const response = await mongodb
         .getDb()
         .db()
-        .collection('workout')
+        .collection('users')
         .replaceOne({
-            _id: workoutId
-        }, updatedWorkout);
+            _id: userId
+        }, updatedUser);
     console.log(response);
     if (response.modifiedCount > 0) {
         res.status(204).send();
@@ -100,16 +102,16 @@ const updateWorkout = async (req, res) => {
 };
 
 
-const deleteWorkout = async (req, res) => {
+const deleteUser = async (req, res) => {
 
     // Checking if task name is valid or not
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid workout id to delete workout');
+        res.status(400).json('Must use a valid user id to delete user');
     }
-    const workoutId = new ObjectId(req.params.id);
+    const userId = new ObjectId(req.params.id);
     try {
-        const response = await mongodb.getDb().db().collection('workout').deleteOne({
-            _id: workoutId
+        const response = await mongodb.getDb().db().collection('users').deleteOne({
+            _id: userId
         }, true);
         console.log(response);
         if (response.deletedCount > 0) {
@@ -126,8 +128,8 @@ const deleteWorkout = async (req, res) => {
 
 module.exports ={
     getAll,
-    createWorkout,
-    getWorkout,
-    updateWorkout,
-    deleteWorkout
+    createUser,
+    getUser,
+    updateUser,
+    deleteUser
 }

@@ -11,32 +11,19 @@ const getAll = async (req, res) => {
 };
 
 const getProgress = async (req, res) => {
-    const progressId = new ObjectId(req.params.id);
+
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid progress id to find user progress');
-      }
-
-    try {
-        const result = await mongodb.getDb().db().collection('progress').findOne({
-            _id:progressId
-        });
-
-        if (!result) {
-            return res.status(404).json({
-                message: 'User progress not found.'
-            });
-        }
-
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(result);
-
-    } catch (error) {
-        console.error('Error fetching user progress:', error);
-        res.status(500).json({
-            error: 'Internal server error'
-        });
+      res.status(400).json('Must use a valid progress id to find user progress');
     }
-};
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().db().collection('progress').find({
+      _id: userId
+    });
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]);
+    });
+  };
 
 
 const createProgress = async (req, res) => {
@@ -68,7 +55,7 @@ const updateProgress = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid progress id to update a user progress.');
     }
-    const progressId = new ObjectId(req.params.id);
+    const userId = new ObjectId(req.params.id);
     const updatedProgress = {
         userId: req.body.userId,
         workoutId: req.body.workoutId,
@@ -89,7 +76,7 @@ const updateProgress = async (req, res) => {
         .db()
         .collection('progress')
         .replaceOne({
-            _id: progressId
+            _id: userId
         }, updatedProgress);
     console.log(response);
     if (response.modifiedCount > 0) {
@@ -107,10 +94,10 @@ const deleteProgress = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid progress id to delete user progress');
     }
-    const progressId = new ObjectId(req.params.id);
+    const userId = new ObjectId(req.params.id);
     try {
-        const response = await mongodb.getDb().db().collection('workout').deleteOne({
-            _id: progressId
+        const response = await mongodb.getDb().db().collection('progress').deleteOne({
+            _id: userId
         }, true);
         console.log(response);
         if (response.deletedCount > 0) {

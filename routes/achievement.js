@@ -2,19 +2,17 @@
 const express = require('express');
 const router = express.Router();
 
-const achieveController = require('../controllers/achievement');
-
+const achieveController = require('../controllers/achievements');
+//const validation = require('../middleware/validate');
 
 router.get('/', achieveController.getAll);
 
-router.get('/:username', achieveController.getAchievement);
-
-router.put('/:id', achieveController.updateAchievement);
+router.get('/:id', achieveController.getAchievement);
 
 router.post('/', achieveController.createAchievement);
 
+router.put('/:id', achieveController.updateAchievement);
+
 router.delete('/:id', achieveController.deleteAchievement);
-
-
 
 module.exports = router;

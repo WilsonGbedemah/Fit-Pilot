@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
-    const result = await mongodb.getDb().db().collection('achievement').find();
+    const result = await mongodb.getDb().db().collection('achievements').find();
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists);
@@ -10,37 +11,19 @@ const getAll = async (req, res) => {
 };
 
 const getAchievement = async (req, res) => {
-    const {
-        name
-    } = req.params;
 
-    if (!name) {
-        return res.status(400).json({
-            error: 'The name field must be provided.'
-        });
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid achievement id to find achievement');
     }
-
-    try {
-        const result = await mongodb.getDb().db().collection('achievement').findOne({
-            name
-        });
-
-        if (!result) {
-            return res.status(404).json({
-                message: 'achievement not found.'
-            });
-        }
-
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(result);
-
-    } catch (error) {
-        console.error('Error fetching user achievement:', error);
-        res.status(500).json({
-            error: 'Internal server error'
-        });
-    }
-};
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().db().collection('achievements').find({
+      _id: userId
+    });
+    result.toArray().then((lists) => {
+      res.setHeader('Content-Type', 'application/json');
+      res.status(200).json(lists[0]);
+    });
+  };
 
 
 const createAchievement = async (req, res) => {
@@ -55,7 +38,7 @@ const createAchievement = async (req, res) => {
         },
     };
     //console.log('Data received for createWorkout:', workout);
-    const response = await mongodb.getDb().db().collection('achievement').insertOne(achievement);
+    const response = await mongodb.getDb().db().collection('achievements').insertOne(achievement);
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
@@ -68,7 +51,7 @@ const updateAchievement = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid achievement id to update a user achievement.');
     }
-    const achievementId = new ObjectId(req.params.id);
+    const userId = new ObjectId(req.params.id);
     const updatedAchievement = {
         userId: req.body.userId,
         achievementId: req.body.achievementId,
@@ -83,9 +66,9 @@ const updateAchievement = async (req, res) => {
     const response = await mongodb
         .getDb()
         .db()
-        .collection('achievement')
+        .collection('achievements')
         .replaceOne({
-            _id: achievementId
+            _id: userId
         }, updatedAchievement);
     console.log(response);
     if (response.modifiedCount > 0) {
@@ -103,10 +86,10 @@ const deleteAchievement = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid achievement id to delete achievement');
     }
-    const achievementId = new ObjectId(req.params.id);
+    const userId = new ObjectId(req.params.id);
     try {
-        const response = await mongodb.getDb().db().collection('achievement').deleteOne({
-            _id: achievementId
+        const response = await mongodb.getDb().db().collection('achievements').deleteOne({
+            _id: userId
         }, true);
         console.log(response);
         if (response.deletedCount > 0) {
