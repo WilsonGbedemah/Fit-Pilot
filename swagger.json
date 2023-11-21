@@ -8,7 +8,7 @@
       "email": "afrogbede09@gmail.com"
     }
   },
-  "host": "localhost:8080",
+  "host": "https://fit-pilot.onrender.com",
   "basePath": "/",
   "tags": [
     {
@@ -28,8 +28,25 @@
       "description": "Operations about achievement"
     }
   ],
-  "schemes": [
-    "http"
+  "schemes": ["https"],
+  "securityDefinitions": {
+    "oauth2Implicit": {
+      "type": "oauth2",
+      "description": "This API uses OAuth 2 with the implicit grant flow",
+      "flows": "implicit",
+      "authorizationUrl": "https://dev-wsizx7e60eyktpeh.us.auth0.com",
+      "scopes": {
+        "read:users": "Read read user information",
+        "write:users": "modify users information",
+        "read:tasks": "Read task information",
+        "write:tasks": "modify tasks information"
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": ["read:users", "write:users", "read:workouts", "write:workouts", "read:progress", "write:progress", "read:achievements", "write:achievements"]
+    }
   ],
   "paths": {
     "/api-docs": {
@@ -45,6 +62,11 @@
     "/users/": {
       "get": {
         "summary": "Get all users",
+        "security": [
+          {
+            "oauth2": ["read:users"]
+          }
+        ],
         "tags": ["users"],
         "produces": ["application/json"],
         "responses": {
@@ -55,6 +77,11 @@
       },
       "post": {
         "description": "Add new user",
+        "security": [
+          {
+            "oauth2": ["write:users"]
+          }
+        ],
         "tags": ["users"],
         "parameters": [
           {
@@ -113,6 +140,11 @@
     "/users/{username}": {
       "get": {
         "description": "Get all users by username",
+        "security": [
+          {
+            "oauth2": ["read:users"]
+          }
+        ],
         "tags": ["users"],
         "produces": ["application/json"],
         "parameters": [
@@ -142,6 +174,11 @@
     "/users/{id}": {
       "put": {
         "description": "update user by ID",
+        "security": [
+          {
+            "oauth2": ["write:users"]
+          }
+        ],
         "tags": ["users"],
         "parameters": [
           {
@@ -207,6 +244,11 @@
       },
       "delete": {
         "description": "delete user by ID",
+        "security": [
+          {
+            "oauth2": ["write:users"]
+          }
+        ],
         "tags": ["users"],
         "parameters": [
           {
@@ -235,6 +277,11 @@
     "/workout/": {
       "get": {
         "description": "Get all workouts",
+        "security": [
+          {
+            "oauth2": ["read:workouts"]
+          }
+        ],
         "tags": ["workout"],
         "produces": ["application/json"],
         "responses": {
@@ -245,6 +292,11 @@
       },
       "post": {
         "description": "Add new workout",
+        "security": [
+          {
+            "oauth2": ["write:workouts"]
+          }
+        ],
         "tags": ["workout"],
         "parameters": [
           {
@@ -300,6 +352,11 @@
     "/workout/{id}": {
       "get": {
         "description": "Get all workouts by ID",
+        "security": [
+          {
+            "oauth2": ["read:workouts"]
+          }
+        ],
         "tags": ["workout"],
         "produces": ["application/json"],
         "parameters": [
@@ -321,6 +378,11 @@
       },
       "put": {
         "description": "update workout by ID",
+        "security": [
+          {
+            "oauth2": ["write:workouts"]
+          }
+        ],
         "tags": ["workout"],
         "parameters": [
           {
@@ -383,6 +445,11 @@
       },
       "delete": {
         "description": "delete workout by ID",
+        "security": [
+          {
+            "oauth2": ["write:workouts"]
+          }
+        ],
         "tags": ["workout"],
         "parameters": [
           {
@@ -411,6 +478,11 @@
     "/progress/": {
       "get": {
         "description": "Get all progress",
+        "security": [
+          {
+            "oauth2": ["read:progress"]
+          }
+        ],
         "tags": ["progress"],
         "produces": ["application/json"],
         "responses": {
@@ -421,6 +493,11 @@
       },
       "post": {
         "description": "Add new progress",
+        "security": [
+          {
+            "oauth2": ["write:progress"]
+          }
+        ],
         "tags": ["progress"],
         "parameters": [
           {
@@ -485,6 +562,11 @@
     "/progress/{id}": {
       "get": {
         "description": "Get all progress by progress ID",
+        "security": [
+          {
+            "oauth2": ["read:progress"]
+          }
+        ],
         "tags": ["progress"],
         "produces": ["application/json"],
         "parameters": [
@@ -506,6 +588,11 @@
       },
       "put": {
         "description": "Update user progress by progress ID",
+        "security": [
+          {
+            "oauth2": ["write:progress"]
+          }
+        ],
         "tags": ["progress"],
         "parameters": [
           {
@@ -577,6 +664,11 @@
       },
       "delete": {
         "description": "delete user progress by progress ID",
+        "security": [
+          {
+            "oauth2": ["write:progress"]
+          }
+        ],
         "tags": ["progress"],
         "parameters": [
           {
@@ -605,6 +697,11 @@
     "/achievement/": {
       "get": {
         "description": "Get all user achievement",
+        "security": [
+          {
+            "oauth2": ["read:achievements"]
+          }
+        ],
         "tags": ["achievement"],
         "produces": ["application/json"],
         "responses": {
@@ -615,6 +712,11 @@
       },
       "post": {
         "description": "Add new user achievement",
+        "security": [
+          {
+            "oauth2": ["write:achievements"]
+          }
+        ],
         "tags": ["achievement"],
         "parameters": [
           {
@@ -663,6 +765,11 @@
     "/achievement/{id}": {
       "get": {
         "description": "Get all progress by achievement ID",
+        "security": [
+          {
+            "oauth2": ["read:achievements"]
+          }
+        ],
         "tags": ["achievement"],
         "produces": ["application/json"],
         "parameters": [
@@ -684,6 +791,11 @@
       },
       "put": {
         "description": "update achievement by ID",
+        "security": [
+          {
+            "oauth2": ["write:achievements"]
+          }
+        ],
         "tags": ["achievement"],
         "parameters": [
           {
@@ -739,6 +851,11 @@
       },
       "delete": {
         "description": "delete achievement by ID",
+        "security": [
+          {
+            "oauth2": ["write:achievements"]
+          }
+        ],
         "tags": ["achievement"],
         "parameters": [
           {
