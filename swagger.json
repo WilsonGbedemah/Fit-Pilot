@@ -8,7 +8,7 @@
       "email": "afrogbede09@gmail.com"
     }
   },
-  "host": "https://fit-pilot.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "tags": [
     {
@@ -28,7 +28,7 @@
       "description": "Operations about achievement"
     }
   ],
-  "schemes": ["https"],
+  "schemes": ["http"],
   "securityDefinitions": {
     "oauth2Implicit": {
       "type": "oauth2",
