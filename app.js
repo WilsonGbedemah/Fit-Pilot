@@ -14,20 +14,20 @@ require('dotenv').config();
 //Define the openID connect configuration
 
 const config = {
- authRequired: false,
- auth0Logout: true,
- secret:process.env.SECRET,
- baseURL: process.env.BASE_URL,
- clientID: process.env.CLIENT_ID,
- issuerBaseURL: process.env.ISSUER_BASE_URL 
-}
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL,
+};
 
-//Attach the authentication middleware
+// auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
-//Define the root route to check if the user is authenticated
+// req.isAuthenticated is provided from the auth router
 app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
 
 //Define the profile route, which requires authentication

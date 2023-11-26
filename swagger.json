@@ -36,7 +36,7 @@
       "flows": "implicit",
       "authorizationUrl": "https://dev-wsizx7e60eyktpeh.us.auth0.com",
       "scopes": {
-        "read:users": "Read read user information",
+        "read:users": "Read  user information",
         "write:users": "modify users information",
         "read:tasks": "Read task information",
         "write:tasks": "modify tasks information"
