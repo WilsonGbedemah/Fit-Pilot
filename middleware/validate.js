@@ -2,7 +2,7 @@
 const validator = require('../helpers/validate');
 
 
-const saveUser = (req, res, next) => {
+const validateUser = (req, res, next) => {
     const validationRule = {
         username : 'required|string',
         name: 'required|string',
@@ -29,7 +29,7 @@ const saveUser = (req, res, next) => {
     });
 };
 
-const saveWorkout = (req, res, next) => {
+const validateWorkout = (req, res, next) => {
     const validationRule ={
         userId: 'required|string',
         workoutId: 'required|integer',
@@ -41,7 +41,6 @@ const saveWorkout = (req, res, next) => {
         recommendedDuration: 'required|integer',
         additionalTips: 'required|string',
     };
-
     validator(req.body, validationRule, {}, (err, status)=>{
         if(!status){
             res.status(412).send({
@@ -56,7 +55,7 @@ const saveWorkout = (req, res, next) => {
 
 }
 
-const saveProgress = (req, res, next) => {
+const validateProgress = (req, res, next) => {
     const validationRule = {
         userId: 'required|string',
         workoutId: 'required|integer',
@@ -78,10 +77,6 @@ const saveProgress = (req, res, next) => {
         injuriesDiscomforts: 'string',
         isCompleted: 'required|boolean',
       };
-      
-      
-      
-
     validator(req.body, validationRule, {}, (err, status) => {
         if(!status){
             res.status(412).send({
@@ -95,7 +90,7 @@ const saveProgress = (req, res, next) => {
     });
 };
 
-const saveAchievement = (req, res, next) => {
+const validateAchievement = (req, res, next) => {
     const validationRule = {
         userId: 'required|string',
         achievementId: 'required|integer',
@@ -106,8 +101,6 @@ const saveAchievement = (req, res, next) => {
           level: 'required|string',
         },
       };
-      
-
     validator(req.body, validationRule, {}, (err, status) => {
         if(!status){
             res.status(412).send({
@@ -122,5 +115,5 @@ const saveAchievement = (req, res, next) => {
 };
 
 module.exports = {
-    saveUser, saveWorkout, saveProgress, saveAchievement
+    validateUser, validateWorkout, validateProgress, validateAchievement
 }

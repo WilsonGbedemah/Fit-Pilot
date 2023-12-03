@@ -3,10 +3,7 @@
   "info": {
     "title": "Fit Pilot ",
     "description": "keep tract of user fitness, and goal, giving out suggestion and also tracking progress of user with underlined achievements of users",
-    "version": "1.0.0",
-    "contact": {
-      "email": "afrogbede09@gmail.com"
-    }
+    "version": "1.0.0"
   },
   "host": "localhost:8080",
   "basePath": "/",
@@ -16,19 +13,21 @@
       "description": "Operations about users"
     },
     {
-      "name": "workout",
-      "description": "Operations about workout"
+      "name": "workouts",
+      "description": "Operations about workouts"
     },
     {
       "name": "progress",
       "description": "Operations about progress"
     },
     {
-      "name": "achievement",
-      "description": "Operations about achievement"
+      "name": "achievements",
+      "description": "Operations about achievements"
     }
   ],
-  "schemes": ["http"],
+  "schemes": [
+    "http"
+  ],
   "securityDefinitions": {
     "oauth2Implicit": {
       "type": "oauth2",
@@ -36,10 +35,14 @@
       "flows": "implicit",
       "authorizationUrl": "https://dev-wsizx7e60eyktpeh.us.auth0.com",
       "scopes": {
-        "read:users": "Read  user information",
+        "read:users": "Read read user information",
         "write:users": "modify users information",
-        "read:tasks": "Read task information",
-        "write:tasks": "modify tasks information"
+        "read:workouts": "Read task information",
+        "write:workouts": "modify tasks information",
+        "read:progress": "Read progress information",
+        "write:progress": "modify progress information",
+        "read:achievements": "Read achievements information",
+        "write:achievements": "modify achievements information"
       }
     }
   },
@@ -48,6 +51,7 @@
       "oauth2": ["read:users", "write:users", "read:workouts", "write:workouts", "read:progress", "write:progress", "read:achievements", "write:achievements"]
     }
   ],
+  
   "paths": {
     "/api-docs": {
       "get": {
@@ -61,14 +65,11 @@
     },
     "/users/": {
       "get": {
-        "summary": "Get all users",
-        "security": [
-          {
-            "oauth2": ["read:users"]
-          }
-        ],
+        "description": "Get all users",
         "tags": ["users"],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -76,12 +77,7 @@
         }
       },
       "post": {
-        "description": "Add new user",
-        "security": [
-          {
-            "oauth2": ["write:users"]
-          }
-        ],
+        "description": "Create new user",
         "tags": ["users"],
         "parameters": [
           {
@@ -139,14 +135,11 @@
     },
     "/users/{username}": {
       "get": {
-        "description": "Get all users by username",
-        "security": [
-          {
-            "oauth2": ["read:users"]
-          }
-        ],
+        "description": "Get user by username",
         "tags": ["users"],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "username",
@@ -173,12 +166,7 @@
     },
     "/users/{id}": {
       "put": {
-        "description": "update user by ID",
-        "security": [
-          {
-            "oauth2": ["write:users"]
-          }
-        ],
+        "description": "update user",
         "tags": ["users"],
         "parameters": [
           {
@@ -243,12 +231,7 @@
         }
       },
       "delete": {
-        "description": "delete user by ID",
-        "security": [
-          {
-            "oauth2": ["write:users"]
-          }
-        ],
+        "description": "Delete user",
         "tags": ["users"],
         "parameters": [
           {
@@ -277,13 +260,10 @@
     "/workout/": {
       "get": {
         "description": "Get all workouts",
-        "security": [
-          {
-            "oauth2": ["read:workouts"]
-          }
+        "tags": ["workouts"],
+        "produces": [
+          "application/json"
         ],
-        "tags": ["workout"],
-        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -291,13 +271,8 @@
         }
       },
       "post": {
-        "description": "Add new workout",
-        "security": [
-          {
-            "oauth2": ["write:workouts"]
-          }
-        ],
-        "tags": ["workout"],
+        "description": "Create new workout",
+        "tags": ["workouts"],
         "parameters": [
           {
             "name": "body",
@@ -317,7 +292,7 @@
                 "difficultyLevel": {
                   "example": "any"
                 },
-                "targetedMuscleGroup": {
+                "targetedMuscleGroups": {
                   "example": "any"
                 },
                 "description": {
@@ -351,14 +326,11 @@
     },
     "/workout/{id}": {
       "get": {
-        "description": "Get all workouts by ID",
-        "security": [
-          {
-            "oauth2": ["read:workouts"]
-          }
+        "description": "Get workout by Id",
+        "tags": ["workouts"],
+        "produces": [
+          "application/json"
         ],
-        "tags": ["workout"],
-        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -377,13 +349,8 @@
         }
       },
       "put": {
-        "description": "update workout by ID",
-        "security": [
-          {
-            "oauth2": ["write:workouts"]
-          }
-        ],
-        "tags": ["workout"],
+        "description": "Update workout",
+        "tags": ["workouts"],
         "parameters": [
           {
             "name": "id",
@@ -409,7 +376,7 @@
                 "difficultyLevel": {
                   "example": "any"
                 },
-                "targetedMuscleGroup": {
+                "targetedMuscleGroups": {
                   "example": "any"
                 },
                 "description": {
@@ -444,13 +411,8 @@
         }
       },
       "delete": {
-        "description": "delete workout by ID",
-        "security": [
-          {
-            "oauth2": ["write:workouts"]
-          }
-        ],
-        "tags": ["workout"],
+        "description": "Delete Workout",
+        "tags": ["workouts"],
         "parameters": [
           {
             "name": "id",
@@ -477,14 +439,11 @@
     },
     "/progress/": {
       "get": {
-        "description": "Get all progress",
-        "security": [
-          {
-            "oauth2": ["read:progress"]
-          }
-        ],
+        "description": "Get all user progress",
         "tags": ["progress"],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -492,12 +451,7 @@
         }
       },
       "post": {
-        "description": "Add new progress",
-        "security": [
-          {
-            "oauth2": ["write:progress"]
-          }
-        ],
+        "description": "Create new progress",
         "tags": ["progress"],
         "parameters": [
           {
@@ -561,14 +515,11 @@
     },
     "/progress/{id}": {
       "get": {
-        "description": "Get all progress by progress ID",
-        "security": [
-          {
-            "oauth2": ["read:progress"]
-          }
-        ],
+        "description": "Get all progress by ID",
         "tags": ["progress"],
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -587,12 +538,7 @@
         }
       },
       "put": {
-        "description": "Update user progress by progress ID",
-        "security": [
-          {
-            "oauth2": ["write:progress"]
-          }
-        ],
+        "description": "update user progress",
         "tags": ["progress"],
         "parameters": [
           {
@@ -663,12 +609,7 @@
         }
       },
       "delete": {
-        "description": "delete user progress by progress ID",
-        "security": [
-          {
-            "oauth2": ["write:progress"]
-          }
-        ],
+        "description": "Delete progress",
         "tags": ["progress"],
         "parameters": [
           {
@@ -696,14 +637,11 @@
     },
     "/achievement/": {
       "get": {
-        "description": "Get all user achievement",
-        "security": [
-          {
-            "oauth2": ["read:achievements"]
-          }
+        "description": "Get all achievement",
+        "tags": ["achievements"],
+        "produces": [
+          "application/json"
         ],
-        "tags": ["achievement"],
-        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -711,13 +649,8 @@
         }
       },
       "post": {
-        "description": "Add new user achievement",
-        "security": [
-          {
-            "oauth2": ["write:achievements"]
-          }
-        ],
-        "tags": ["achievement"],
+        "description": "Create new achievement",
+        "tags": ["achievements"],
         "parameters": [
           {
             "name": "body",
@@ -738,12 +671,7 @@
                   "example": "any"
                 },
                 "criteria": {
-                  "fitnessGoal": {
-                    "example": "any"
-                  },
-                  "level": {
-                    "example": "any"
-                  }
+                  "example": "any"
                 }
               }
             }
@@ -764,14 +692,11 @@
     },
     "/achievement/{id}": {
       "get": {
-        "description": "Get all progress by achievement ID",
-        "security": [
-          {
-            "oauth2": ["read:achievements"]
-          }
+        "description": "Get user achievement by ID",
+        "tags": ["achievements"],
+        "produces": [
+          "application/json"
         ],
-        "tags": ["achievement"],
-        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -790,13 +715,8 @@
         }
       },
       "put": {
-        "description": "update achievement by ID",
-        "security": [
-          {
-            "oauth2": ["write:achievements"]
-          }
-        ],
-        "tags": ["achievement"],
+        "description": "update user achievement",
+        "tags": ["achievements"],
         "parameters": [
           {
             "name": "id",
@@ -823,12 +743,7 @@
                   "example": "any"
                 },
                 "criteria": {
-                  "fitnessGoal": {
-                    "example": "any"
-                  },
-                  "level": {
-                    "example": "any"
-                  }
+                  "example": "any"
                 }
               }
             }
@@ -850,13 +765,8 @@
         }
       },
       "delete": {
-        "description": "delete achievement by ID",
-        "security": [
-          {
-            "oauth2": ["write:achievements"]
-          }
-        ],
-        "tags": ["achievement"],
+        "description": "Delete user achievement",
+        "tags": ["achievements"],
         "parameters": [
           {
             "name": "id",
