@@ -4,60 +4,53 @@
     "achievementId": 1,
     "name": "Muscle Builder",
     "description": "Achieve significant muscle gains.",
-    "criteria": {
-      "fitnessGoal": "Build muscle",
-      "level": "Intermediate"
-    }
+    "fitnessGoal": "Build muscle",
+    "level": "Intermediate",
+    "progressRequired": "Complete 'Full Body Strength' workout 20 times."
   },
   {
     "userId": "pharo",
     "achievementId": 2,
     "name": "Endurance Warrior",
     "description": "Complete 50 hours of endurance exercises.",
-    "criteria": {
-      "fitnessGoal": "Improve endurance",
-      "level": "Intermediate"
-    }
+    "fitnessGoal": "Improve endurance",
+    "level": "Intermediate",
+    "progressRequired": "Run 100 miles within the next month."
   },
   {
     "userId": "skanty",
     "achievementId": 1,
     "name": "Shape Shifter",
     "description": "Achieve a well-defined physique.",
-    "criteria": {
-      "fitnessGoal": "Build shape",
-      "level": "Beginner"
-    }
+    "fitnessGoal": "Build shape",
+    "level": "Beginner",
+    "progressRequired": "Complete 'Beginner Full Body Workout' 15 times."
   },
   {
     "userId": "skanty",
     "achievementId": 2,
     "name": "Well-Being Explorer",
     "description": "Explore various well-being activities.",
-    "criteria": {
-      "fitnessGoal": "General well-being",
-      "level": "Beginner"
-    }
+    "fitnessGoal": "General well-being",
+    "level": "Beginner",
+    "progressRequired": "Try a new well-being activity every week for a month."
   },
   {
     "userId": "Edoh",
     "achievementId": 1,
     "name": "Biceps & Triceps Enthusiast",
     "description": "Master bicep and tricep exercises.",
-    "criteria": {
-      "fitnessGoal": "Build biceps and triceps",
-      "level": "Beginner"
-    }
+    "fitnessGoal": "Build biceps and triceps",
+    "level": "Beginner",
+    "progressRequired": "Complete 'Biceps and Triceps Builder' workout 10 times."
   },
   {
     "userId": "Edoh",
     "achievementId": 2,
     "name": "Consistent Beginner",
     "description": "Stay consistent with beginner-level workouts.",
-    "criteria": {
-      "fitnessGoal": "Build biceps and triceps",
-      "level": "Beginner"
-    }
+    "fitnessGoal": "Build biceps and triceps",
+    "level": "Beginner",
+    "progressRequired": "Complete 'Consistent Beginner' workout for a month."
   }
-
 ]

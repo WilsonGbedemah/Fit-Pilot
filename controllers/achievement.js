@@ -32,10 +32,9 @@ const createAchievement = async (req, res) => {
         achievementId: req.body.achievementId,
         name: req.body.name,
         description: req.body.description,
-        criteria: {
-            fitnessGoal: req.body.criteria.fitnessGoal,
-            level: req.body.criteria.level,
-        },
+        fitnessGoal: req.body.fitnessGoal,
+        level: req.body.level,
+        progressRequired: req.body.progressRequired,
     };
     //console.log('Data received for createWorkout:', workout);
     const response = await mongodb.getDb().db().collection('achievements').insertOne(achievement);
@@ -57,10 +56,9 @@ const updateAchievement = async (req, res) => {
         achievementId: req.body.achievementId,
         name: req.body.name,
         description: req.body.description,
-        criteria: {
-            fitnessGoal: req.body.criteria.fitnessGoal,
-            level: req.body.criteria.level,
-        },
+        fitnessGoal: req.body.fitnessGoal,
+        level: req.body.level,
+        progressRequired: req.body.progressRequired,
     };
     //console.log('Data received for updateContact:', contact);
     const response = await mongodb

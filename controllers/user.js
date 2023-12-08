@@ -84,7 +84,7 @@ const updateUser = async (req, res) => {
         fitnessGoals: req.body.fitnessGoals,
         fitnessLevel: req.body.fitnessLevel,
     };
-    //console.log('Data received for updateContact:', contact);
+    console.log('Data received for user update:', updatedUser);
     const response = await mongodb
         .getDb()
         .db()
@@ -96,7 +96,7 @@ const updateUser = async (req, res) => {
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
-        //console.log('Error updating contact:', response.error);
+        console.log('Error updating contact:', response.error);
         res.status(500).json(response.error || 'Some error occurred while updating the user.');
     }
 };
@@ -104,7 +104,7 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
 
-    // Checking if task name is valid or not
+    // Checking if Id is valid or not
     if (!ObjectId.isValid(req.params.id)) {
         res.status(400).json('Must use a valid user id to delete user');
     }

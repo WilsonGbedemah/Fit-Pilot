@@ -289,22 +289,22 @@
                 "name": {
                   "example": "any"
                 },
-                "difficultyLevel": {
+                "level": {
                   "example": "any"
                 },
-                "targetedMuscleGroups": {
+                "muscleGroups": {
                   "example": "any"
                 },
                 "description": {
                   "example": "any"
                 },
-                "stepByStepInstructions": {
+                "instructions": {
                   "example": "any"
                 },
-                "recommendedDuration": {
+                "durationMinutes": {
                   "example": "any"
                 },
-                "additionalTips": {
+                "tips": {
                   "example": "any"
                 }
               }
@@ -373,22 +373,22 @@
                 "name": {
                   "example": "any"
                 },
-                "difficultyLevel": {
+                "level": {
                   "example": "any"
                 },
-                "targetedMuscleGroups": {
+                "muscleGroups": {
                   "example": "any"
                 },
                 "description": {
                   "example": "any"
                 },
-                "stepByStepInstructions": {
+                "instructions": {
                   "example": "any"
                 },
-                "recommendedDuration": {
+                "durationMinutes": {
                   "example": "any"
                 },
-                "additionalTips": {
+                "tips": {
                   "example": "any"
                 }
               }
@@ -670,7 +670,13 @@
                 "description": {
                   "example": "any"
                 },
-                "criteria": {
+                "fitnessGoal": {
+                  "example": "any"
+                },
+                "level": {
+                  "example": "any"
+                },
+                "progressRequired": {
                   "example": "any"
                 }
               }
@@ -742,7 +748,13 @@
                 "description": {
                   "example": "any"
                 },
-                "criteria": {
+                "fitnessGoal": {
+                  "example": "any"
+                },
+                "level": {
+                  "example": "any"
+                },
+                "progressRequired": {
                   "example": "any"
                 }
               }

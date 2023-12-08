@@ -12,7 +12,7 @@ const validateUser = (req, res, next) => {
         gender: 'required|string',
         height: 'required|integer',
         weight: 'required|integer',
-        fitnessGoal: 'required|string',
+        fitnessGoals: 'required|string',
         fitnessLevel: 'required|string',
     };
 
@@ -34,12 +34,12 @@ const validateWorkout = (req, res, next) => {
         userId: 'required|string',
         workoutId: 'required|integer',
         name: 'required|string',
-        difficultyLevel: 'required|string',
-        targetedMuscleGroup: 'required|string',
-        description: 'required| string',
-        stepByStepInstructions: 'required|array',
-        recommendedDuration: 'required|integer',
-        additionalTips: 'required|string',
+        level: 'required|string',
+        muscleGroups: 'required|string',
+        description: 'string',
+        instructions: 'string',
+        durationMinutes: 'integer',
+        tips: 'string',
     };
     validator(req.body, validationRule, {}, (err, status)=>{
         if(!status){
@@ -59,14 +59,7 @@ const validateProgress = (req, res, next) => {
     const validationRule = {
         userId: 'required|string',
         workoutId: 'required|integer',
-        date: [
-          'required',
-          {
-            format: {
-              pattern: 'YYYY-MM-DD',
-            },
-          },
-        ],
+        date: ['required', { date: { format: 'YYYY-MM-DD' } }],
         durationMinutes: 'required|integer',
         caloriesBurned: 'required|integer',
         notes: 'string',
@@ -76,19 +69,21 @@ const validateProgress = (req, res, next) => {
         sleepQuality: 'string',
         injuriesDiscomforts: 'string',
         isCompleted: 'required|boolean',
-      };
+    };
+
     validator(req.body, validationRule, {}, (err, status) => {
-        if(!status){
+        if (!status) {
             res.status(412).send({
                 success: false,
                 message: 'Validation failed',
-                data: err
+                data: err,
             });
-        }else{
+        } else {
             next();
         }
     });
 };
+
 
 const validateAchievement = (req, res, next) => {
     const validationRule = {
@@ -96,10 +91,9 @@ const validateAchievement = (req, res, next) => {
         achievementId: 'required|integer',
         name: 'required|string',
         description: 'required|string',
-        criteria: {
-          fitnessGoal: 'required|string',
-          level: 'required|string',
-        },
+        fitnessGoal: 'required|string',
+        level: 'required|string',
+        progressRequired: 'required|string',
       };
     validator(req.body, validationRule, {}, (err, status) => {
         if(!status){

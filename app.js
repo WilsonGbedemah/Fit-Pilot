@@ -37,11 +37,11 @@ app.get('/profile', requiresAuth(), (req, res) => {
 });
 
 // Define routes for the users collection, which requires authentication
-app.use('/users', requiresAuth(), require('./routes/user'));
+app.use('/user', requiresAuth(), require('./routes/user'));
 
 
 // Define routes for the users collection, which requires authentication
-app.use('/workouts', requiresAuth(), require('./routes/workout'));
+app.use('/workout', requiresAuth(), require('./routes/workout'));
 
 
 // Define routes for the users collection, which requires authentication
@@ -49,7 +49,7 @@ app.use('/progress', requiresAuth(), require('./routes/progress'))
 
 
 // Define routes for the users collection, which requires authentication
-app.use('/achievements', requiresAuth(), require('./routes/achievement'))
+app.use('/achievement', requiresAuth(), require('./routes/achievement'))
 
 
 // Setup CORS and content headers

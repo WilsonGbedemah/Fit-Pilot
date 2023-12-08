@@ -26,7 +26,7 @@ const getProgress = async (req, res) => {
   };
 
 
-const createProgress = async (req, res) => {
+  const createProgress = async (req, res) => {
     const progress = {
         userId: req.body.userId,
         workoutId: req.body.workoutId,
@@ -41,8 +41,11 @@ const createProgress = async (req, res) => {
         injuriesDiscomforts: req.body.injuriesDiscomforts,
         isCompleted: req.body.isCompleted,
     };
+
     console.log('Data received for createProgress:', progress);
+
     const response = await mongodb.getDb().db().collection('progress').insertOne(progress);
+
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
@@ -50,6 +53,7 @@ const createProgress = async (req, res) => {
         res.status(500).json(response.error || 'Some error occurred while creating the user progress.');
     }
 };
+
 
 const updateProgress = async (req, res) => {
     if (!ObjectId.isValid(req.params.id)) {
