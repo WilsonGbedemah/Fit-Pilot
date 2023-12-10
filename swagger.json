@@ -76,7 +76,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new user",
         "tags": ["users"],
         "parameters": [
           {
@@ -86,45 +86,58 @@
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john_doe"
                 },
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "email",
+                  "example": "john.doe@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "minLength": 6,
+                  "example": "securePassword123"
                 },
                 "age": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 25
                 },
                 "gender": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Male"
                 },
                 "height": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 175
                 },
                 "weight": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 70
                 },
                 "fitnessGoals": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Build muscle"
                 },
                 "fitnessLevel": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Intermediate"
                 }
-              }
+              },
+              "required": ["username", "name", "email", "password", "age", "gender", "height", "weight", "fitnessGoals", "fitnessLevel"]
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "User created successfully"
           },
           "412": {
-            "description": "Precondition Failed"
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -165,7 +178,7 @@
     },
     "/users/{id}": {
       "put": {
-        "description": "",
+        "description": "update existing user",
         "tags": ["users"],
         "parameters": [
           {
@@ -181,48 +194,61 @@
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
+                "type": "string",
+                "example": "john_doe"
                 },
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "email",
+                  "example": "john.doe@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "minLength": 6,
+                  "example": "securePassword123"
                 },
                 "age": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 25
                 },
                 "gender": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Male"
                 },
                 "height": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 175
                 },
                 "weight": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 70
                 },
                 "fitnessGoals": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Build muscle"
                 },
                 "fitnessLevel": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Intermediate"
                 }
-              }
+              },
+              "required": ["username", "name", "email", "password", "age", "gender", "height", "weight", "fitnessGoals", "fitnessLevel"]
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - User updated successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
           },
           "412": {
-            "description": "Precondition Failed"
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -230,7 +256,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete existing user",
         "tags": ["users"],
         "parameters": [
           {
@@ -242,13 +268,13 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - user deleted successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
           },
-          "404": {
-            "description": "Not Found"
+          "412": {
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -270,7 +296,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new workout",
         "tags": ["workouts"],
         "parameters": [
           {
@@ -280,42 +306,52 @@
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john_doe"
                 },
                 "workoutId": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1
                 },
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Full Body Strength"
                 },
                 "difficultyLevel": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Intermediate"
                 },
                 "targetedMuscleGroups": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Chest, Back, Legs, Shoulders"
                 },
                 "description": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "A full-body strength workout for muscle building."
                 },
                 "stepByStepInstructions": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Warm-up for 10 minutes. Perform 3 sets of push-ups..."
                 },
                 "recommendedDuration": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 45
                 },
                 "additionalTips": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Stay hydrated and maintain proper form during exercises."
                 }
-              }
+              },
+              "required": ["username", "workoutId", "name", "difficultyLevel", "targetedMuscleGroups", "description", "stepByStepInstructions", "recommendedDuration", "additionalTips"]
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Workout created successfully"
           },
           "412": {
-            "description": "Precondition Failed"
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -348,7 +384,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update an existing workout",
         "tags": ["workouts"],
         "parameters": [
           {
@@ -364,51 +400,62 @@
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john_doe"
                 },
                 "workoutId": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1
                 },
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Full Body Strength"
                 },
                 "difficultyLevel": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Intermediate"
                 },
                 "targetedMuscleGroups": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Chest, Back, Legs, Shoulders"
                 },
                 "description": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "A full-body strength workout for muscle building."
                 },
                 "stepByStepInstructions": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Warm-up for 10 minutes. Perform 3 sets of push-ups..."
                 },
                 "recommendedDuration": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 45
                 },
                 "additionalTips": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Stay hydrated and maintain proper form during exercises."
                 }
-              }
+              },
+              "required": ["username", "workoutId", "name", "difficultyLevel", "targetedMuscleGroups", "description", "stepByStepInstructions", "recommendedDuration", "additionalTips"]
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - Workout updated successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
           },
           "412": {
-            "description": "Precondition Failed"
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
           }
         }
-      },
+      }
+      ,
       "delete": {
         "description": "",
         "tags": ["workouts"],
@@ -422,13 +469,13 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - Workout deleted successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
           },
-          "404": {
-            "description": "Not Found"
+          "412": {
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -450,7 +497,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create new progress",
         "tags": ["progress"],
         "parameters": [
           {
@@ -458,42 +505,63 @@
             "in": "body",
             "schema": {
               "type": "object",
+              "required": [
+                "username",
+                "workoutId",
+                "date",
+                "durationMinutes",
+                "caloriesBurned",
+                "isCompleted"
+              ],
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john_doe"
                 },
                 "workoutId": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1
                 },
                 "date": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "YYYY-MM-DD",
+                  "example": "2023-11-01"
                 },
                 "durationMinutes": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 45
                 },
                 "caloriesBurned": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 350
                 },
                 "notes": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Felt strong and energized."
                 },
                 "mood": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Happy"
                 },
                 "heartRate": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 130
                 },
                 "intensityLevel": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Moderate"
                 },
                 "sleepQuality": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Good"
                 },
                 "injuriesDiscomforts": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "None"
                 },
                 "isCompleted": {
-                  "example": "any"
+                  "type": "boolean",
+                  "example": true
                 }
               }
             }
@@ -501,14 +569,15 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "progress created successfully"
           },
           "412": {
-            "description": "Precondition Failed"
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
           }
+        }
         }
       }
     },
@@ -537,7 +606,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update an existing progress",
         "tags": ["progress"],
         "parameters": [
           {
@@ -551,42 +620,63 @@
             "in": "body",
             "schema": {
               "type": "object",
+              "required": [
+                "username",
+                "workoutId",
+                "date",
+                "durationMinutes",
+                "caloriesBurned",
+                "isCompleted"
+              ],
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john_doe"
                 },
                 "workoutId": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1
                 },
                 "date": {
-                  "example": "any"
+                  "type": "string",
+                  "format": "YYYY-MM-DD",
+                  "example": "2023-11-01"
                 },
                 "durationMinutes": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 45
                 },
                 "caloriesBurned": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 350
                 },
                 "notes": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Felt strong and energized."
                 },
                 "mood": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Happy"
                 },
                 "heartRate": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 130
                 },
                 "intensityLevel": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Moderate"
                 },
                 "sleepQuality": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Good"
                 },
                 "injuriesDiscomforts": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "None"
                 },
                 "isCompleted": {
-                  "example": "any"
+                  "type": "boolean",
+                  "example": true
                 }
               }
             }
@@ -594,13 +684,13 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - progress updated successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
           },
           "412": {
-            "description": "Precondition Failed"
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -620,13 +710,13 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - progress deleted successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
           },
-          "404": {
-            "description": "Not Found"
+          "412": {
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -648,7 +738,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new achievement",
         "tags": ["achievements"],
         "parameters": [
           {
@@ -656,26 +746,34 @@
             "in": "body",
             "schema": {
               "type": "object",
+              "required": ["username", "achievementId", "name", "description", "fitnessGoal", "level", "progressRequired"],
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john_doe"
                 },
                 "achievementId": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1
                 },
                 "name": {
+                  "type": "string",
                   "example": "any"
                 },
                 "description": {
+                  "type": "string",
                   "example": "any"
                 },
                 "fitnessGoal": {
+                  "type": "string",
                   "example": "any"
                 },
                 "level": {
+                  "type": "string",
                   "example": "any"
                 },
                 "progressRequired": {
+                  "type": "string",
                   "example": "any"
                 }
               }
@@ -684,7 +782,10 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "achievement created successfully"
+          },
+          "412": {
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -717,7 +818,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update an existing achievement",
         "tags": ["achievements"],
         "parameters": [
           {
@@ -731,26 +832,34 @@
             "in": "body",
             "schema": {
               "type": "object",
+              "required": ["username", "achievementId", "name", "description", "fitnessGoal", "level", "progressRequired"],
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john_doe"
                 },
                 "achievementId": {
-                  "example": "any"
+                  "type": "integer",
+                  "example": 1
                 },
                 "name": {
+                  "type": "string",
                   "example": "any"
                 },
                 "description": {
+                  "type": "string",
                   "example": "any"
                 },
                 "fitnessGoal": {
+                  "type": "string",
                   "example": "any"
                 },
                 "level": {
+                  "type": "string",
                   "example": "any"
                 },
                 "progressRequired": {
+                  "type": "string",
                   "example": "any"
                 }
               }
@@ -759,10 +868,13 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - achievement updated successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
+          },
+          "412": {
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -782,13 +894,13 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content - achievement deleted successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - Invalid input"
           },
-          "404": {
-            "description": "Not Found"
+          "412": {
+            "description": "Precondition Failed - Validation error"
           },
           "500": {
             "description": "Internal Server Error"
@@ -797,4 +909,3 @@
       }
     }
   }
-}

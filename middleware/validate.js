@@ -31,7 +31,7 @@ const saveUser = (req, res, next) => {
 
 const saveWorkout = (req, res, next) => {
     const validationRule ={
-        userId: 'required|string',
+        username: 'required|string',
         workoutId: 'required|integer',
         name: 'required|string',
         difficultyLevel: 'required|string',
@@ -57,7 +57,7 @@ const saveWorkout = (req, res, next) => {
 
 const saveProgress = (req, res, next) => {
     const validationRule = {
-        userId: 'required|string',
+        username: 'required|string',
         workoutId: 'required|integer',
         date: ['required', { date: { format: 'YYYY-MM-DD' } }],
         durationMinutes: 'required|integer',
@@ -87,7 +87,7 @@ const saveProgress = (req, res, next) => {
 
 const saveAchievement = (req, res, next) => {
     const validationRule = {
-        userId: 'required|string',
+        username: 'required|string',
         achievementId: 'required|integer',
         name: 'required|string',
         description: 'required|string',
