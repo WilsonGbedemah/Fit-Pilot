@@ -1,6 +1,6 @@
 [
     {
-        "userId": "pharo",
+      "username": "pharo",
         "workoutId": 1,
         "date": "2023-11-01",
         "durationMinutes": 45,
@@ -14,7 +14,7 @@
         "isCompleted": true
       },
       {
-        "userId": "skanty",
+        "username": "skanty",
         "workoutId": 1,
         "date": "2023-11-02",
         "durationMinutes": 30,
@@ -28,7 +28,7 @@
         "isCompleted": true
       },
       {
-        "userId": "Edoh",
+        "username": "Edoh",
         "workoutId": 2,
         "date": "2023-11-01",
         "durationMinutes": 30,

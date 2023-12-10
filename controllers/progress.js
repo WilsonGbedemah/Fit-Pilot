@@ -28,7 +28,7 @@ const getProgress = async (req, res) => {
 
   const createProgress = async (req, res) => {
     const progress = {
-        userId: req.body.userId,
+        username: req.body.username,
         workoutId: req.body.workoutId,
         date: req.body.date,
         durationMinutes: req.body.durationMinutes,
@@ -61,7 +61,7 @@ const updateProgress = async (req, res) => {
     }
     const userId = new ObjectId(req.params.id);
     const updatedProgress = {
-        userId: req.body.userId,
+        username: req.body.username,
         workoutId: req.body.workoutId,
         date: req.body.date,
         durationMinutes: req.body.durationMinutes,

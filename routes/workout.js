@@ -9,9 +9,9 @@ router.get('/', workController.getAll);
 
 router.get('/:id', workController.getWorkout);
 
-router.post('/',validation.validateWorkout, workController.createWorkout);
+router.post('/',validation.saveWorkout, workController.createWorkout);
 
-router.put('/:id',validation.validateWorkout, workController.updateWorkout);
+router.put('/:id',validation.saveWorkout, workController.updateWorkout);
 
 router.delete('/:id', workController.deleteWorkout);
 

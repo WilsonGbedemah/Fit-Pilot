@@ -9,9 +9,9 @@ router.get('/', progController.getAll);
 
 router.get('/:id', progController.getProgress);
 
-router.post('/',validation.validateProgress, progController.createProgress);
+router.post('/',validation.saveProgress, progController.createProgress);
 
-router.put('/:id',validation.validateProgress, progController.updateProgress);
+router.put('/:id',validation.saveProgress, progController.updateProgress);
 
 router.delete('/:id', progController.deleteProgress);
 

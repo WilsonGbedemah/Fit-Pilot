@@ -1,53 +1,53 @@
 [
+  {
+      "username": "pharo",
+      "workoutId":1,
+      "name": "Full Body Strength",
+      "difficultyLevel": "Intermediate",
+      "targetedMuscleGroups": ["Chest", "Back", "Legs", "Shoulders"],
+      "description": "A full-body strength workout for muscle building.",
+      "stepByStepInstructions": [
+        "Warm-up for 10 minutes.",
+        "Perform 3 sets of push-ups (15 reps each set).",
+        "Follow with 3 sets of squats (20 reps each set).",
+        "Do 3 sets of pull-ups (10 reps each set).",
+        "Include lunges in 3 sets (12 reps each set).",
+        "Finish with a cool down and stretching exercises."
+      ],
+      "recommendedDuration": 45,
+      "additionalTips": "Stay hydrated and maintain proper form during exercises."
+    },
     {
-        "userId": "pharo",
-        "workoutId":1,
-        "name": "Full Body Strength",
-        "level": "Intermediate",
-        "muscleGroups": ["Chest", "Back", "Legs", "Shoulders"],
-        "description": "A full-body strength workout for muscle building.",
-        "instructions": [
-          "Warm-up for 10 minutes.",
-          "Perform 3 sets of push-ups (15 reps each set).",
-          "Follow with 3 sets of squats (20 reps each set).",
-          "Do 3 sets of pull-ups (10 reps each set).",
-          "Include lunges in 3 sets (12 reps each set).",
-          "Finish with a cool down and stretching exercises."
-        ],
-        "durationMinutes": 45,
-        "tips": "Stay hydrated and maintain proper form during exercises."
-      },
-      {
-        "userId": "skanty",
-        "workoutId": 1,
-        "name": "Beginner Full Body Workout",
-        "level": "Beginner",
-        "muscleGroups": ["Full Body"],
-        "description": "A beginner-friendly full-body workout for general well-being.",
-        "instructions": [
-          "Start with a 5-minute warm-up.",
-          "Perform bodyweight exercises like squats, lunges, and push-ups.",
-          "Include core exercises such as planks and crunches.",
-          "Finish with a 5-minute cool-down and stretching."
-        ],
-        "durationMinutes": 30,
-        "tips": "Focus on proper form and listen to your body. Gradually increase intensity as you become more comfortable."
-      },
-      {
-        "userId": "Edoh",
-        "workoutId": 2,
-        "name": "Biceps and Triceps Builder",
-        "level": "Beginner",
-        "muscleGroups": ["Biceps", "Triceps"],
-        "description": "A beginner workout to build strength in biceps and triceps.",
-        "instructions": [
-          "Start with a 5-minute warm-up.",
-          "Perform bicep exercises like dumbbell curls (3 sets of 12 reps).",
-          "Include tricep exercises such as tricep dips (3 sets of 12 reps).",
-          "Finish with a 5-minute cool-down and stretching."
-        ],
-        "durationMinutes": 30,
-        "tips": "Use light weights initially, focusing on proper form. Gradually increase intensity as you become more comfortable."
-      }
-      
+      "username": "skanty",
+      "workoutId": 1,
+      "name": "Beginner Full Body Workout",
+      "difficultyLevel": "Beginner",
+      "targetedMuscleGroups": ["Full Body"],
+      "description": "A beginner-friendly full-body workout for general well-being.",
+      "stepByStepInstructions": [
+        "Start with a 5-minute warm-up.",
+        "Perform bodyweight exercises like squats, lunges, and push-ups.",
+        "Include core exercises such as planks and crunches.",
+        "Finish with a 5-minute cool-down and stretching."
+      ],
+      "recommendedDuration": 30,
+      "additionalTips": "Focus on proper form and listen to your body. Gradually increase intensity as you become more comfortable."
+    },
+    {
+      "username": "Edoh",
+      "workoutId": 2,
+      "name": "Biceps and Triceps Builder",
+      "difficultyLevel": "Beginner",
+      "targetedMuscleGroups": ["Biceps", "Triceps"],
+      "description": "A beginner workout to build strength in biceps and triceps.",
+      "stepByStepInstructions": [
+        "Start with a 5-minute warm-up.",
+        "Perform bicep exercises like dumbbell curls (3 sets of 12 reps).",
+        "Include tricep exercises such as tricep dips (3 sets of 12 reps).",
+        "Finish with a 5-minute cool-down and stretching."
+      ],
+      "recommendedDuration": 30,
+      "additionalTips": "Use light weights initially, focusing on proper form. Gradually increase intensity as you become more comfortable."
+    }
+    
 ]

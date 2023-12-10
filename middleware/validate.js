@@ -2,7 +2,7 @@
 const validator = require('../helpers/validate');
 
 
-const validateUser = (req, res, next) => {
+const saveUser = (req, res, next) => {
     const validationRule = {
         username : 'required|string',
         name: 'required|string',
@@ -29,17 +29,17 @@ const validateUser = (req, res, next) => {
     });
 };
 
-const validateWorkout = (req, res, next) => {
+const saveWorkout = (req, res, next) => {
     const validationRule ={
         userId: 'required|string',
         workoutId: 'required|integer',
         name: 'required|string',
-        level: 'required|string',
-        muscleGroups: 'required|string',
-        description: 'string',
-        instructions: 'string',
-        durationMinutes: 'integer',
-        tips: 'string',
+        difficultyLevel: 'required|string',
+        targetedMuscleGroups: 'required|string', 
+        description: 'required|string',
+        stepByStepInstructions: 'required|string',
+        recommendedDuration: 'required|integer',
+        additionalTips: 'required|string',
     };
     validator(req.body, validationRule, {}, (err, status)=>{
         if(!status){
@@ -55,7 +55,7 @@ const validateWorkout = (req, res, next) => {
 
 }
 
-const validateProgress = (req, res, next) => {
+const saveProgress = (req, res, next) => {
     const validationRule = {
         userId: 'required|string',
         workoutId: 'required|integer',
@@ -85,7 +85,7 @@ const validateProgress = (req, res, next) => {
 };
 
 
-const validateAchievement = (req, res, next) => {
+const saveAchievement = (req, res, next) => {
     const validationRule = {
         userId: 'required|string',
         achievementId: 'required|integer',
@@ -109,5 +109,5 @@ const validateAchievement = (req, res, next) => {
 };
 
 module.exports = {
-    validateUser, validateWorkout, validateProgress, validateAchievement
+    saveUser, saveWorkout, saveProgress, saveAchievement
 }

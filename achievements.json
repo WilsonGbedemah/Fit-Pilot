@@ -1,6 +1,6 @@
 [
   {
-    "userId": "pharo",
+    "username": "pharo",
     "achievementId": 1,
     "name": "Muscle Builder",
     "description": "Achieve significant muscle gains.",
@@ -9,7 +9,7 @@
     "progressRequired": "Complete 'Full Body Strength' workout 20 times."
   },
   {
-    "userId": "pharo",
+    "username": "pharo",
     "achievementId": 2,
     "name": "Endurance Warrior",
     "description": "Complete 50 hours of endurance exercises.",
@@ -18,7 +18,7 @@
     "progressRequired": "Run 100 miles within the next month."
   },
   {
-    "userId": "skanty",
+    "username": "skanty",
     "achievementId": 1,
     "name": "Shape Shifter",
     "description": "Achieve a well-defined physique.",
@@ -27,7 +27,7 @@
     "progressRequired": "Complete 'Beginner Full Body Workout' 15 times."
   },
   {
-    "userId": "skanty",
+    "username": "skanty",
     "achievementId": 2,
     "name": "Well-Being Explorer",
     "description": "Explore various well-being activities.",
@@ -36,7 +36,7 @@
     "progressRequired": "Try a new well-being activity every week for a month."
   },
   {
-    "userId": "Edoh",
+    "username": "Edoh",
     "achievementId": 1,
     "name": "Biceps & Triceps Enthusiast",
     "description": "Master bicep and tricep exercises.",
@@ -45,7 +45,7 @@
     "progressRequired": "Complete 'Biceps and Triceps Builder' workout 10 times."
   },
   {
-    "userId": "Edoh",
+    "username": "Edoh",
     "achievementId": 2,
     "name": "Consistent Beginner",
     "description": "Stay consistent with beginner-level workouts.",

@@ -28,7 +28,7 @@ const getAchievement = async (req, res) => {
 
 const createAchievement = async (req, res) => {
     const achievement = {
-        userId: req.body.userId,
+        username: req.body.username,
         achievementId: req.body.achievementId,
         name: req.body.name,
         description: req.body.description,
@@ -52,7 +52,7 @@ const updateAchievement = async (req, res) => {
     }
     const userId = new ObjectId(req.params.id);
     const updatedAchievement = {
-        userId: req.body.userId,
+        username: req.body.username,
         achievementId: req.body.achievementId,
         name: req.body.name,
         description: req.body.description,

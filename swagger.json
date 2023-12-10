@@ -51,7 +51,6 @@
       "oauth2": ["read:users", "write:users", "read:workouts", "write:workouts", "read:progress", "write:progress", "read:achievements", "write:achievements"]
     }
   ],
-  
   "paths": {
     "/api-docs": {
       "get": {
@@ -65,7 +64,7 @@
     },
     "/users/": {
       "get": {
-        "description": "Get all users",
+        "description": "",
         "tags": ["users"],
         "produces": [
           "application/json"
@@ -77,7 +76,7 @@
         }
       },
       "post": {
-        "description": "Create new user",
+        "description": "",
         "tags": ["users"],
         "parameters": [
           {
@@ -135,7 +134,7 @@
     },
     "/users/{username}": {
       "get": {
-        "description": "Get user by username",
+        "description": "",
         "tags": ["users"],
         "produces": [
           "application/json"
@@ -166,7 +165,7 @@
     },
     "/users/{id}": {
       "put": {
-        "description": "update user",
+        "description": "",
         "tags": ["users"],
         "parameters": [
           {
@@ -231,7 +230,7 @@
         }
       },
       "delete": {
-        "description": "Delete user",
+        "description": "",
         "tags": ["users"],
         "parameters": [
           {
@@ -259,7 +258,7 @@
     },
     "/workout/": {
       "get": {
-        "description": "Get all workouts",
+        "description": "",
         "tags": ["workouts"],
         "produces": [
           "application/json"
@@ -271,7 +270,7 @@
         }
       },
       "post": {
-        "description": "Create new workout",
+        "description": "",
         "tags": ["workouts"],
         "parameters": [
           {
@@ -280,7 +279,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "username": {
                   "example": "any"
                 },
                 "workoutId": {
@@ -289,22 +288,22 @@
                 "name": {
                   "example": "any"
                 },
-                "level": {
+                "difficultyLevel": {
                   "example": "any"
                 },
-                "muscleGroups": {
+                "targetedMuscleGroups": {
                   "example": "any"
                 },
                 "description": {
                   "example": "any"
                 },
-                "instructions": {
+                "stepByStepInstructions": {
                   "example": "any"
                 },
-                "durationMinutes": {
+                "recommendedDuration": {
                   "example": "any"
                 },
-                "tips": {
+                "additionalTips": {
                   "example": "any"
                 }
               }
@@ -326,7 +325,7 @@
     },
     "/workout/{id}": {
       "get": {
-        "description": "Get workout by Id",
+        "description": "",
         "tags": ["workouts"],
         "produces": [
           "application/json"
@@ -349,7 +348,7 @@
         }
       },
       "put": {
-        "description": "Update workout",
+        "description": "",
         "tags": ["workouts"],
         "parameters": [
           {
@@ -364,7 +363,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "username": {
                   "example": "any"
                 },
                 "workoutId": {
@@ -373,22 +372,22 @@
                 "name": {
                   "example": "any"
                 },
-                "level": {
+                "difficultyLevel": {
                   "example": "any"
                 },
-                "muscleGroups": {
+                "targetedMuscleGroups": {
                   "example": "any"
                 },
                 "description": {
                   "example": "any"
                 },
-                "instructions": {
+                "stepByStepInstructions": {
                   "example": "any"
                 },
-                "durationMinutes": {
+                "recommendedDuration": {
                   "example": "any"
                 },
-                "tips": {
+                "additionalTips": {
                   "example": "any"
                 }
               }
@@ -411,7 +410,7 @@
         }
       },
       "delete": {
-        "description": "Delete Workout",
+        "description": "",
         "tags": ["workouts"],
         "parameters": [
           {
@@ -439,7 +438,7 @@
     },
     "/progress/": {
       "get": {
-        "description": "Get all user progress",
+        "description": "",
         "tags": ["progress"],
         "produces": [
           "application/json"
@@ -451,7 +450,7 @@
         }
       },
       "post": {
-        "description": "Create new progress",
+        "description": "",
         "tags": ["progress"],
         "parameters": [
           {
@@ -460,7 +459,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "username": {
                   "example": "any"
                 },
                 "workoutId": {
@@ -515,7 +514,7 @@
     },
     "/progress/{id}": {
       "get": {
-        "description": "Get all progress by ID",
+        "description": "",
         "tags": ["progress"],
         "produces": [
           "application/json"
@@ -538,7 +537,7 @@
         }
       },
       "put": {
-        "description": "update user progress",
+        "description": "",
         "tags": ["progress"],
         "parameters": [
           {
@@ -553,7 +552,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "username": {
                   "example": "any"
                 },
                 "workoutId": {
@@ -609,7 +608,7 @@
         }
       },
       "delete": {
-        "description": "Delete progress",
+        "description": "",
         "tags": ["progress"],
         "parameters": [
           {
@@ -637,7 +636,7 @@
     },
     "/achievement/": {
       "get": {
-        "description": "Get all achievement",
+        "description": "",
         "tags": ["achievements"],
         "produces": [
           "application/json"
@@ -649,7 +648,7 @@
         }
       },
       "post": {
-        "description": "Create new achievement",
+        "description": "",
         "tags": ["achievements"],
         "parameters": [
           {
@@ -658,7 +657,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "username": {
                   "example": "any"
                 },
                 "achievementId": {
@@ -687,9 +686,6 @@
           "201": {
             "description": "Created"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -698,7 +694,7 @@
     },
     "/achievement/{id}": {
       "get": {
-        "description": "Get user achievement by ID",
+        "description": "",
         "tags": ["achievements"],
         "produces": [
           "application/json"
@@ -721,7 +717,7 @@
         }
       },
       "put": {
-        "description": "update user achievement",
+        "description": "",
         "tags": ["achievements"],
         "parameters": [
           {
@@ -736,7 +732,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
+                "username": {
                   "example": "any"
                 },
                 "achievementId": {
@@ -768,16 +764,13 @@
           "400": {
             "description": "Bad Request"
           },
-          "412": {
-            "description": "Precondition Failed"
-          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "description": "Delete user achievement",
+        "description": "",
         "tags": ["achievements"],
         "parameters": [
           {
